@@ -20,19 +20,19 @@ function lerDato(mensagem){
 
 let mensagem="Introduze um número enteiro positivo";
 
-/** Possiblemente com funçom recursiva que devolva false se é divisible por algum outro número que nom seja 
- * el mesmo ou o 1, começando de el mesmo cara atrás
+/**
+ * Funçom à que se lhe passa um número e logo comprova desde o número anterior
+ * até o dous, se se pode dividir com resto 0.
+ * Se aparece algúm, entom nom é palíndromo, e devolve false, e se nom como 
+ * nom é divisível entre nengum número intermedio pois é palíndromo e devolve true
  */
-//NOM ESTÁ FUNCIONANDO!!
-function numPrimo(n,constante=0,saida=true){
-    constante=n;
-    if ( (constante != n || constante != 1) && constante%n == 0){
-        saida = false
-        return saida;
-    } else {
-        numPrimo(n-1);
+function numPrimo(n){
+    for(i=n-1;i>1;i--){
+        if(n%i == 0){
+            return false;
+        }
     }
-    return saida;
+    return true;
 }
 
-console.log(numPrimo(6));
+console.log(numPrimo(lerDato(mensagem)));
