@@ -58,7 +58,7 @@ let arr2 = Array.from({length:longitude},() => aleatorio(-100,100));
 let iguais = [];
 let arr1diff = [];
 let arr2diff = [];
-
+/* 
 for (let valor of arr1){
     for(let valor2 of arr2){
         if(valor === valor2){
@@ -66,7 +66,41 @@ for (let valor of arr1){
         }
     }
 }
+ */
 
-for (let valor of iguais){
-    if 
-}
+/** Pois aqui esta o método includes. Este método devolve true se o elemento que se
+ * lhe passa está no array, assi aforra-se fazer o segundo for
+ */
+/*for (let valor of arr1){
+    if (arr2.includes(valor))
+            iguais.push(valor);
+}*/
+
+/** O jeito de faze-lo numha só linha é co método filter, onde filter sempre tem que levar umha funçom que devolva
+ * true ou false.
+ * Neste casso, iguais seria um novo array. arr1.filter iria passando cada elemento de arr1 e se arr2.includes(el)
+ * ou seja, se o elemento está tamém no array arr2, devolve true e inclue-o no novo array iguais. 
+ * 
+ * let iguais=arr1.filter(el=>arr2.includes(el))
+ * 
+ * Esta linha, algo mais desglosada sería
+ * 
+ * let iguais=arr1.filter(function comprovaIguais(elemento){
+ *      return arr2.includes(elemento);
+ * })
+ * 
+ * só que ao ser funçom frecha pode-se aforrar a palavra return
+ */
+//let iguais=arr1.filter(el=>arr2.includes(el))
+//let diferentes=arr1.filter(el=>!arr2.includes(el))
+
+
+iguais=arr1.filter(el=>arr2.includes(el))
+arr1diff = arr1.filter(el=>!iguais.includes(el))
+arr2diff = arr2.filter(el=>!iguais.includes(el))
+
+console.log(`Los elementos del Array1: ${arr1.join(',')}
+Los elementos del Array2: ${arr2.join(',')}
+Los arrays tienen ${iguais.length} elementos comunes: los elementos comunes: ${iguais.join(',')}
+En el primer array no hay los siguientes elementos del segundo array: ${arr2diff.join(',')}
+En el segundo array no hay los siguientes elementos del primer array: ${arr1diff.join(',')}`)
