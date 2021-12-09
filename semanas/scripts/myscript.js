@@ -1,4 +1,4 @@
-A sus 7 años, Lorenzo está aprendiendo a dividir. Una de las primeras cosas que ha hecho ha sido averiguar cuántas semanas
+/**A sus 7 años, Lorenzo está aprendiendo a dividir. Una de las primeras cosas que ha hecho ha sido averiguar cuántas semanas
 tiene un año. Para eso, con lápiz y papel, ha dividido 365 entre 7, y ha llegado a que hay 52 semanas, y sobra un día.
 
 Sin embargo, al mirar el calendario del año en que nació, ha contado únicamente 51 semanas. Sin entender dónde se
@@ -28,3 +28,4 @@ Salida de ejemplo
 52
 51
 19
+ */
