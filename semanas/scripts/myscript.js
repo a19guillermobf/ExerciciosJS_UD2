@@ -29,3 +29,37 @@ Salida de ejemplo
 51
 19
  */
+
+
+/** Suponho que será, calcular o resto de dias do ano entre dias da semana
+ * se da 0, o ano só terá as semanas completas se começa no dia 1, todo o demais vai ser o resultado da divissom
+ * 
+ * se da distinto de 0, é que hai algumha semana que nom vai ter todos os dias, entom, o resto vai ser os dias 
+ * que tem essa semana que nom chega ao total.
+ * Entom, se começa no dia 1 vai ter todas as semanas possíveis (dias ano/dias semana), se começa no dia da semana
+ * dias totais semana-resto ou algum maior tamém, e se nom, vai ter umha semana menos
+ * 
+ * em todo caso, a lógica dos do resto 0 vai ser igual que a dos do resto nom 0, porque restaria 0 polo que nom variaria nunca
+ * os dias da semana e só valeria o dia 1
+ */
+
+function calculaSemanas(dias_ano,dias_semana,dia_semana){
+    if (dia_semana === 1 || dia_semana >= dias_semana-(dias_ano%dias_semana)){
+        return Math.floor(dias_ano/dias_semana);
+    } else {
+        return Math.floor(dias_ano/dias_semana)-1;
+    }
+}
+
+let numero_casos = prompt("Intruduze o número de casos que queres que se avaliem");
+
+while(numero_casos>0){
+    let datos = prompt(`Introduze os dias totais do ano,
+    os dias que tem umha semana e o dia no que começa o ano
+    de 1 a dias totais da semana
+    em formato dias_ano dias_semana dia_semana
+    Ex. 365 7 7`)
+    datos = datos.split(" ");
+    console.log(calculaSemanas(parseInt(datos[0]),parseInt(datos[1]),parseInt(datos[2])));
+    numero_casos--;
+}
